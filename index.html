@@ -33,9 +33,9 @@
           <li class="nav-item"><a class="nav-link" href="#contact">contact</a>
           </li>
         </ul>
-		<a href="tel:+598 98245315" style="text-decoration:none">
+		<a href="tel:+598-98245315" style="text-decoration:none">
         <button type="button" class="rounded-pill btn-rounded">
-          +598-98245315
+          +598 98245315
           <span>
             <i class="fas fa-phone-alt"></i>
           </span>
@@ -613,9 +613,9 @@
 
 		  </br>
 			<center>
-				<a href="tel:+598 98245315" style="text-decoration:none">
+				<a href="tel:+598-98245315" style="text-decoration:none">
 					<button type="button" class="rounded-pill btn-rounded">
-						+598-98245315
+						+598 98245315
 						<span><i class="fas fa-phone-alt"></i></span>
 					</button>
 				</a>
@@ -625,7 +625,7 @@
       </div>
       <div class="col-12 col-lg-6 bg-white shadow p-3">
         <div class="form w-100 pb-2">
-          <h4 class="display-3--title mb-5">start your project</h4>
+          <h4 class="display-3--title mb-5">comienza tu proyecto hoy</h4>
           <form action="#" class="row">
             <div class="col-lg-6 col-md mb-3">
               <input type="text" placeholder="First Name" id="inputFirstName" class="shadow form-control form-control-lg">
@@ -633,6 +633,11 @@
             <div class="col-lg-6 col-md mb-3">
               <input type="text" placeholder="Last Name" id="inputLastName" class="shadow form-control form-control-lg">
             </div>
+
+			<div class="col-lg-12 mb-3">
+              <input type="phone" placeholder="Phone Number" id="inputPhone" class="shadow form-control form-control-lg">
+            </div>
+
             <div class="col-lg-12 mb-3">
               <input type="email" placeholder="email address" id="inputEmail" class="shadow form-control form-control-lg">
             </div>
@@ -642,7 +647,8 @@
             <div class="text-center d-grid mt-1">
               <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3">
                 submit
-                <i class="fas fa-paper-plane"></i>
+                <!-- <i class="fas fa-paper-plane"></i> -->
+				<i class="fas"><img src="images/campanies/whatsapp.png" height="25px" width="25px"></i>
               </button>
             </div>
           </form>
@@ -669,8 +675,8 @@
           </svg>
         </div>
         <div class="contact-box__info">
-          <a href="#" class="contact-box__info--title">+1 728365413</a>
-          <p class="contact-box__info--subtitle">  Mon-Fri 9am-6pm</p>
+          <a href="tel:+598-98245315" class="contact-box__info--title">+598 098245315</a>
+          <p class="contact-box__info--subtitle">Lunes - Viernes 9am-6pm</p>
         </div>
       </div>  
       <!-- CONTENT FOR EMAIL  -->
@@ -702,8 +708,8 @@
           </svg>
         </div>
         <div class="contact-box__info">
-          <a href="#" class="contact-box__info--title">New York, USA</a>
-          <p class="contact-box__info--subtitle">NY 10012, US</p>
+          <a href="#" class="contact-box__info--title">Montevideo, UY</a>
+          <p class="contact-box__info--subtitle">11800, UY</p>
         </div>
       </div>
     </div>
@@ -751,7 +757,7 @@
         <h5 class="text-capitalize fw-bold">useful links</h5>
         <hr class="bg-white d-inline-block mb-4" style="width: 60px; height: 2px;">
         <ul class="list-inline campany-list">
-          <li><a href="#"> Your Account</a></li>
+          <li><a href="#">Your Account</a></li>
           <li><a href="#">Become an Affiliate</a></li>
           <li><a href="#">create an account</a></li>
           <li><a href="#">Help</a></li>
@@ -787,16 +793,14 @@
 </footer>
 
 <!-- BACK TO TOP BUTTON  -->
-<a href="#" class="shadow btn-primary rounded-circle back-to-top">
-  <i class="fas fa-chevron-up"></i>
-</a>
+	<a href="#" class="shadow btn-primary rounded-circle back-to-top">
+		<i class="fas fa-chevron-up"></i>
+	</a>
 
-
-
-   
     <!-- <script src="assets/vendors/glightbox/js/glightbox.min.js"></script> -->
 
-    <script type="text/javascript">
+	<script type="text/javascript">
+
       const lightbox = GLightbox({
         'touchNavigation': true,
         'href': 'https://www.youtube.com/watch?v=J9lS14nM1xg',
@@ -805,6 +809,25 @@
         'width': 900,
         'autoPlayVideos': 'true',
 	});
+
+	function gotowhatsapp() {
+
+		var name = document.getElementById("inputFirstName").value;
+		var lstname = document.getElementById("inputLastName").value;
+		var phone = document.getElementById("inputPhone").value;
+		var email = document.getElementById("inputEmail").value;
+		var message = document.getElementById("message").value;
+
+		var url = "https://wa.me/098245315?text=" 
+			+ "Name: " + name + "%0a"
+			+ "Last Name: " + lstname + "%0a"
+			+ "Phone: " + phone + "%0a"
+			+ "Email: " + email  + "%0a"
+			+ "Service: " + message;
+
+		window.open(url, '_blank').focus();
+	}
+
     </script>
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
 
