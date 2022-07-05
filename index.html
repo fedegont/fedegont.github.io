@@ -836,46 +836,50 @@
 	});
 
 	function sendWhatsapp() {
-		var name = document.getElementById("name").value;
-		var lstname = document.getElementById("lstname").value;
-		var phone = document.getElementById("phone").value;
-		var email = document.getElementById("email").value;
-		var message = document.getElementById("message").value;
+		var a = document.getElementById("name").value;
+		var b = document.getElementById("lstname").value;
+		var c = document.getElementById("phone").value;
+		var d = document.getElementById("email").value;
+		var e = document.getElementById("message").value;
 
-		var msg = "Name: " + name + "\n"
-			+ "Last Name: " + lstname + "\n"
-			+ "Phone: " + phone + "\n"
-			+ "Email: " + email  + "\n"
-			+ "Service: " + message;
+		if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "") {
+			swal({title: "", text: "Por favor, ingrese todos los datos", icon: "warning", buttons: false, closeOnClickOutside: true,timer: 2000});
+			return;
+		}
+
+		var msg = "Name: " + a + "\n"
+			+ "Last Name: " + b + "\n"
+			+ "Phone: " + c + "\n"
+			+ "Email: " + d  + "\n"
+			+ "Service: " + e;
+
 		window.open("https://wa.me/+59898245315?text=" + encodeURIComponent(msg), '_blank').focus();
 	}
 
 	function sendEmail() {
 
-		swal({
-			title: "", 
-			text: "Enviando mensaje...",
-			icon: "images/loading.gif",
-			buttons: false,     
-			closeOnClickOutside: false,
-			timer: 6000
-		});
+		var a = document.getElementById("name").value;
+		var b = document.getElementById("lstname").value;
+		var c = document.getElementById("phone").value;
+		var d = document.getElementById("email").value;
+		var e = document.getElementById("message").value;
 
-		var name = document.getElementById("name").value;
-		var lstname = document.getElementById("lstname").value;
-		var pNumber = document.getElementById("phone").value;
-		var email = document.getElementById("email").value;
-		var service = document.getElementById("message").value;
+		if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "") {
+			swal({title: "", text: "Por favor, ingrese todos los datos", icon: "warning", buttons: false, closeOnClickOutside: true, timer: 2000});
+			return;
+		}
+
+		swal({title: "", text: "Enviando mensaje...", icon: "images/loading.gif", buttons: false, closeOnClickOutside: false, timer: 6000});
 
 		var templateParams = {
-			from_name: name,
-			from_lstname: lstname,
-			phone: pNumber,
-			semail: email,
-			message: service
+			from_name: a,
+			from_lstname: b,
+			phone: c,
+			semail: d,
+			message: e
 		};
 
-		emailjs.send('service_gmail', 'template_zdwz61u', templateParams) // Insert your email service ID and email template ID
+		emailjs.send('service_gmail', 'template_zdwz61u', templateParams)
 			.then(function(response) {
 				swal({title: "Success!", text: "Mensaje enviado", icon: "success", showConfirmButton: false});				
 			}, function(error) {
