@@ -11215,5 +11215,7 @@ textarea.form-control-lg {
 /*# sourceMappingURL=style.css.map */
 
 .navbar li {
-	margin-top: 5px;
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
+	font-size: 1.1em;
 }
