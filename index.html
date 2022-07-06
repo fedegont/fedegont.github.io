@@ -611,7 +611,7 @@
     <div class="row text-white">
       <div class="col-12 col-lg-6 gradient shadow p-3">
         <div class="cta-info w-100">
-          <h4 class="display-4 fw-bold">100% Satisfaction Guaranteed</h4>
+          <h4 class="display-4 fw-bold">100% Satisfacción garantizada</h4>
           <p class="lh-lg">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam alias optio minima, tempore architecto sint ipsam dolore tempora facere laboriosam corrupti!
           </p>
@@ -623,14 +623,14 @@
           </ul>
 
 		  </br>
-			<center>
-				<a href="tel:+598-98245315" style="text-decoration:none">
-					<button type="button" class="rounded-pill btn-rounded">
-						+598 98245315
-						<span><i class="fas fa-phone-alt"></i></span>
-					</button>
-				</a>
-			</center>
+		  <center>
+			<a href="tel:+598-98245315" style="text-decoration:none">
+				<button type="button" class="rounded-pill btn-rounded">
+					+598 98245315
+					<span><i class="fas fa-phone-alt"></i></span>
+				</button>
+			</a>
+		  </center>
 
         </div>
       </div>
@@ -650,15 +650,14 @@
             </div>
 
             <div class="col-lg-12 mb-3">
-              <input type="email" placeholder="email address" id="email" class="shadow form-control form-control-lg">
+              <input type="email" placeholder="Email address" id="email" class="shadow form-control form-control-lg">
             </div>
             <div class="col-lg-12 mb-3">
-              <textarea name="message" placeholder="message" id="message" rows="8" class="shadow form-control form-control-lg"></textarea>
+              <textarea name="message" placeholder="Message" id="message" rows="8" class="shadow form-control form-control-lg"></textarea>
             </div>
             <div class="text-center d-grid mt-1">
               <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3" onclick="sendWhatsapp()">
                 enviar por
-                <!-- <i class="fas fa-paper-plane"></i> -->
 				<i class="fas"><img src="images/campanies/whatsapp.png" height="25px" width="25px"></i>
               </button>
             </div>
@@ -666,7 +665,6 @@
             <div class="text-center d-grid mt-1">
               <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3" onclick="sendEmail()">
                 enviar por
-                <!-- <i class="fas fa-paper-plane"></i> -->
 				<i class="fas"><img src="images/campanies/mail.png" height="25px" width="25px"></i>
               </button>
             </div>
@@ -776,7 +774,6 @@
         <ul class="list-inline campany-list">
           <li><a href="#">Your Account</a></li>
           <li><a href="#">Become an Affiliate</a></li>
-          <li><a href="#">Create an account</a></li>
           <li><a href="#">Help</a></li>
         </ul>
       </div>
@@ -791,7 +788,7 @@
   </div>
 
   <!-- START THE COPYRIGHT INFO  -->
-  <div class="footer-bottom pt-5 pb-5">
+  <div class="footer-bottom pt-3 pb-3">
     <div class="container">
       <div class="row text-center text-white">
         <div class="col-12">
@@ -805,12 +802,12 @@
   </div>
 </footer>
 
-	<!-- BACK TO TOP BUTTON  -->
-	<a href="#" class="shadow btn-primary rounded-circle back-to-top">
-		<i class="fas fa-chevron-up"></i>
-	</a>
+<!-- BACK TO TOP BUTTON  -->
+<a href="#" class="shadow btn-primary rounded-circle back-to-top">
+	<i class="fas fa-chevron-up"></i>
+</a>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
 	(function(){ emailjs.init("u3Zp2RbyYg4nnlFgK"); })();
 
@@ -818,22 +815,20 @@
 		'touchNavigation': true,
 		'href': 'https://www.youtube.com/watch?v=J9lS14nM1xg',
 		'type': 'video',
-		'source': 'youtube', //vimeo, youtube or local
+		'source': 'youtube',
 		'width': 900,
 		'autoPlayVideos': 'true',
 	});
 
 	function sendWhatsapp() {
+
+		if (!checkdata()) return;
+
 		var a = document.getElementById("name").value;
 		var b = document.getElementById("lstname").value;
 		var c = document.getElementById("phone").value;
 		var d = document.getElementById("email").value;
 		var e = document.getElementById("message").value;
-
-		if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "") {
-			swal({title: "", text: "Por favor, ingrese todos los datos", icon: "warning", buttons: false, closeOnClickOutside: true,timer: 2000});
-			return;
-		}
 
 		var msg = "Nombre: " + a + "\n"
 			+ "Apellido: " + b + "\n"
@@ -846,18 +841,15 @@
 
 	function sendEmail() {
 
+		if (!checkdata()) return;
+
+		swal({title: "", text: "Enviando mensaje...", icon: "images/loading.gif", buttons: false, closeOnClickOutside: false, timer: 6000});
+
 		var a = document.getElementById("name").value;
 		var b = document.getElementById("lstname").value;
 		var c = document.getElementById("phone").value;
 		var d = document.getElementById("email").value;
 		var e = document.getElementById("message").value;
-
-		if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "", e == null || e == "") {
-			swal({title: "", text: "Por favor, ingrese todos los datos", icon: "warning", buttons: false, closeOnClickOutside: true, timer: 2000});
-			return;
-		}
-
-		swal({title: "", text: "Enviando mensaje...", icon: "images/loading.gif", buttons: false, closeOnClickOutside: false, timer: 6000});
 
 		var templateParams = {
 			from_name: a,
@@ -869,15 +861,46 @@
 
 		emailjs.send('service_gmail', 'template_zdwz61u', templateParams)
 			.then(function(response) {
-				swal({title: "Success!", text: "Mensaje enviado", icon: "success", showConfirmButton: false});				
+				swal({title: "Enviado!", text: "Mensaje enviado", icon: "success", showConfirmButton: false});				
 			}, function(error) {
 				swal({title: "Error!", text: "Mensaje no enviado", icon: "error", showConfirmButton: false});
 			});
 
 	}
-	</script>
 
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	function checkdata()
+	{
+		var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+		var a = document.getElementById("name").value;
+		var b = document.getElementById("lstname").value;
+		var c = document.getElementById("phone").value;
+		var d = document.getElementById("email").value;
+		var e = document.getElementById("message").value;
+
+		if ((a == null || a.trim().length === 0) || (b == null || b.trim().length === 0) || (e == null || e.trim().length === 0)) {
+			swal({title: "Upss", text: "Debe completar nombre, apellido y mensaje", icon: "warning", buttons: false, closeOnClickOutside: true, timer: 3000});
+			return false;
+		}
+
+		if (c == null || c == '' || isNaN(c)) {
+			swal({title: "Upss", text: "Revise el número telefónico, ingrese solamente números sin espacios", icon: "warning", buttons: false, closeOnClickOutside: true, timer: 3000});
+			document.getElementById("phone").focus();
+			return false;
+		}
+
+		if (d == null || d == '' || !d.match(validRegex)) {
+			swal({title: "Upss", text: "El formato del correo no parece correcto", icon: "warning", buttons: false, closeOnClickOutside: true, timer: 3000});
+			return false;
+		}
+
+		return true;
+
+	}
+
+</script>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
