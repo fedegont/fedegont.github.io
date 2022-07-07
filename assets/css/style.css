@@ -11219,3 +11219,12 @@ textarea.form-control-lg {
 	margin-bottom: 2.5px;
 	font-size: 1.2em;
 }
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block !important;
+  animation: fadeIn 2s;
+}
+.itm {
+  display: none;
+}
