@@ -10934,11 +10934,17 @@ textarea.form-control-lg {
 
 .services {
   position: relative;
-  padding: 2rem 0;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0rem;
 }
 .services__content {
-  padding: 1rem;
-  margin-top: 0;
+  /* padding: 1rem; */
+  padding-top: 0rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 .services__content p {
   font-size: 0.8rem;
