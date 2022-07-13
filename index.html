@@ -14,7 +14,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeJb-sgAAAAAGoArA96OfCN2fKLLYPQ94hD3MiQ"></script>
 
 	<script>
 		function displayMenu(event) {
@@ -657,7 +658,7 @@
               <textarea name="message" placeholder="Message" id="message" rows="8" class="shadow form-control form-control-lg"></textarea>
             </div>
             <div class="text-center d-grid mt-1">
-              <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3" onclick="sendWhatsapp()">
+              <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3" onclick="onclick()"> <!-- onclick="sendWhatsapp()"-->
                 enviar por
                 <i class="fas"><img src="images/campanies/whatsapp.png" height="25px" width="25px"></i>
               </button>
@@ -670,7 +671,7 @@
               </button>
             </div>
 
-<button class="g-recaptcha" data-sitekey="6LeJb-sgAAAAAGoArA96OfCN2fKLLYPQ94hD3MiQ" data-callback='onSubmit' data-action='submit'>Submit</button>
+<!-- <button class="g-recaptcha" data-sitekey="6LeJb-sgAAAAAGoArA96OfCN2fKLLYPQ94hD3MiQ" data-callback='onSubmit' data-action='submit'>Submit</button> -->
 
 
           </form>
@@ -814,9 +815,11 @@
 
 <script type="text/javascript">
 
+  /*
    function onSubmit(token) {
      document.getElementById("demo-form").submit();
    }
+  */
 
 	(function(){ emailjs.init("u3Zp2RbyYg4nnlFgK"); })();
 
@@ -938,6 +941,19 @@
     }
     element.className = arr1.join(" ");
   }
+
+
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6LeJb-sgAAAAAGoArA96OfCN2fKLLYPQ94hD3MiQ', {action: 'submit'}).then(function(token) {
+        // Add your logic to submit to your backend server here.
+        sendWhatsapp();
+      });
+    });
+  }
+
+
 
 </script>
 
