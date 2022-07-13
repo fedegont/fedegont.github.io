@@ -11207,7 +11207,8 @@ textarea.form-control-lg {
   width: 3rem;
   height: 3rem;
   right: 1.875rem;
-  bottom: 1.875rem;
+  /* bottom: 1.875rem; */
+  bottom: 3rem;
   z-index: 9999;
 }
 .back-to-top i {

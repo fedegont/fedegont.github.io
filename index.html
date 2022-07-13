@@ -665,7 +665,7 @@
             </div>
             <br>
             <div class="text-center d-grid mt-1">
-              <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3" onclick="sendEmail()">
+              <button type="button" class="btn btn-primary rounded-pill pt-3 pb-3 g-recaptcha" data-sitekey="6LeJb-sgAAAAAGoArA96OfCN2fKLLYPQ94hD3MiQ" data-callback='sendEmail' data-action='submit'>
                 enviar por
                 <i class="fas"><img src="images/campanies/mail.png" height="25px" width="25px"></i>
               </button>
@@ -811,10 +811,6 @@
 </a>
 
 <script type="text/javascript">
-
-  function onSubmit(token) {
-    document.getElementById("sendContact").submit();
-  }
 
 	(function(){ emailjs.init("u3Zp2RbyYg4nnlFgK"); })();
 
