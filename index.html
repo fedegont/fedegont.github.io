@@ -864,9 +864,9 @@
 
 		emailjs.send('service_gmail', 'template_zdwz61u', templateParams)
 			.then(function(response) {
-				swal({title: "Enviado!", text: "Mensaje enviado", icon: "success", button: false});				
+				swal({title: "Enviado!", text: "Mensaje enviado", icon: "success", buttons: false});				
 			}, function(error) {
-				swal({title: "Error!", text: "Mensaje no enviado", icon: "error", button: false});
+				swal({title: "Error!", text: "Mensaje no enviado", icon: "error", buttons: false});
 			});
 	}
 
